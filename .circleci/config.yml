@@ -121,8 +121,8 @@ jobs:
               LIBRARIES_CACHE=libraries.tar.bz2
               mkdir /tmp/out
               mkdir -p "$OPENSCAD_LIBRARIES"
-              ( echo "Loading macports cache..." ; cd /tmp && curl -s -O https://files.openscad.org/circleci/"$MACPORTS_CACHE" ) || true
-              ( echo "Loading libraries cache..." ; cd /tmp && curl -s -O https://files.openscad.org/circleci/"$LIBRARIES_CACHE" ) || true
+              ( echo "Loading macports cache..." ; cd /tmp && curl -f -s -O https://files.openscad.org/circleci/"$MACPORTS_CACHE" ) || true
+              ( echo "Loading libraries cache..." ; cd /tmp && curl -f -s -O https://files.openscad.org/circleci/"$LIBRARIES_CACHE" ) || true
               sudo mkdir -p /opt/local
               sudo tar xj -C /opt/local -f /tmp/"$MACPORTS_CACHE" || true
               if [ -f /opt/local/bin/port ]; then
